@@ -1,6 +1,9 @@
-matlab_figures/**
+**.log
 old/**
 run_outputs/**
 **.install
 **.png
 **.html
+**.fig
+**.aux
+**.tex
