@@ -12,5 +12,8 @@ runfolder="/proj/snic2018-8-228/bms_normalsize/500.perlbench_r/run/run_base_refr
 cd $runfolder
 
 /proj/snic2018-8-228/pin_tutorial/pin/pin -t \
-/proj/snic2018-8-228/pin_tutorial/pin/source/tools/MemoryTrans/obj-intel64/memtrans2.so -- \
+/proj/snic2018-8-228/pin_tutorial/pin/source/tools/MemoryTrans/obj-intel64/memtrans_multi.so \
+-o $outputfile -s $cachesize -a $assoc -l $linesize -ic $instcache -- \
 $runfolder/perlbench_r_base.myfirsttest-m64 -I./lib splitmail.pl 6400 12 26 16 100 0
+
+mv ./$outputfile $outfolder/$outputfile
