@@ -8,14 +8,14 @@
 #SBATCH -o run_outputs/531-deepsjeng-r-%j-repgen.log
 
 fileaddr="../run_outputs/$1.out"
-figfolder="../matlab_figures/$1"
-figname="$1"
+figfolder="../matlab_figures/$2"
+figname="$2"
 
-echo Starting to create the figures and latex report for file: "$1.out"...
+echo Starting to create the figures and latex report for file: "$2.out"...
 
 #create the folder for the figure and report to be placed in
-mkdir matlab_figures/$1
-echo Folder created: matlab_figures/$1...
+mkdir matlab_figures/$2
+echo Folder created: matlab_figures/$2...
 
 #matlab folder must be located inside the folder where the script is run
 cd matlab
@@ -33,8 +33,8 @@ echo Compiling latex report...
 
 cd $figfolder
 #compile the latex report (double compile to get the refs correct)
-pdflatex $1_report.tex
-pdflatex $1_report.tex
+pdflatex $2_report.tex
+pdflatex $2_report.tex
 
 
 cd ..
