@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.ezdeploy" plugin-version="1.0">
-  <configuration file="/crex/proj/snic2018-8-228/spec17_master/user/matlab/memtrans_plotter.prj" location="/crex/proj/snic2018-8-228/spec17_master/user/matlab" name="memtrans_plotter" target="target.ezdeploy.standalone" target-name="Application Compiler">
+  <configuration build-checksum="63568173" file="/crex/proj/snic2018-8-228/spec17_master/user/matlab/memtrans_plotter.prj" location="/crex/proj/snic2018-8-228/spec17_master/user/matlab" name="memtrans_plotter" preferred-package-location="/crex/proj/snic2018-8-228/spec17_master/user/matlab/memtrans_plotter/for_redistribution" preferred-package-type="package.type.install" target="target.ezdeploy.standalone" target-name="Application Compiler">
     <param.appname>memtrans_plotter</param.appname>
     <param.icon />
     <param.icons />
@@ -96,6 +96,7 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
     <fileset.package />
     <fileset.depfun>
       <file>${PROJECT_ROOT}/latex_source.tex</file>
+      <file>${PROJECT_ROOT}/plot_seq_zeros.m</file>
     </fileset.depfun>
     <build-deliverables>
       <file location="${PROJECT_ROOT}/memtrans_plotter/for_testing" name="run_memtrans_plotter.sh" optional="false">/crex/proj/snic2018-8-228/spec17_master/user/matlab/memtrans_plotter/for_testing/run_memtrans_plotter.sh</file>
@@ -154,7 +155,7 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
       <vista>false</vista>
       <linux>true</linux>
       <solaris>false</solaris>
-      <osver>3.10.0-862.3.2.el7.x86_64</osver>
+      <osver>3.10.0-862.14.4.el7.x86_64</osver>
       <os32>false</os32>
       <os64>true</os64>
       <arch>glnxa64</arch>

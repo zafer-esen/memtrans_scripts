@@ -5,17 +5,31 @@
 \title{Memory Bus Bit Transition Statistics for\\%s}
 \date{\today}
 
+\setlength{\parindent}{0cm}
 
 \begin{document}
 \maketitle
 
 \section{Scalar Statistics}
-\begin{enumerate}
-\item %s:%s
-\item %s:%s
-\item %s:%s
-\item %s:%s
-\end{enumerate}
+
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
+\textbf{%s}:%s \\
 
 \section{Graphs}
 The graphs give the data either \textbf{transfer-wise} or \textbf{bus-wise}. Bus-wise refers to data sent within the same transfer (i.e. as part of the same bus transfer, as defined by bus-width). Transfer-wise refers to data from different bus transfers, which cause the bit transitions to occur.
@@ -23,65 +37,140 @@ The graphs give the data either \textbf{transfer-wise} or \textbf{bus-wise}. Bus
 \pagebreak
 \subsection{Distribution of all byte values transmitted over the bus}
 
-Figures \ref{fig_1} and \ref{fig_2} give the distribution of all transmitted bytes, either through a memory read or a memory write. The first one (pareto chart) is in terms of total number of occurrences, while at the same time showing the accumulation in the total percentage of transmitted byte values. The second one displays the absolute percentage of the most popular values transferred over the bus.
+Figure~\ref{fig:dist-byte-pareto} and Figure~\ref{fig:dist-byte-pie} 
+give the distribution of all 
+transmitted bytes, either through a memory read or a memory write. 
+The first one (pareto chart) is in terms of total number of occurrences, 
+while at the same time showing the accumulation in the total percentage 
+of transmitted byte values. The second one displays the absolute 
+percentage of the most popular values transferred over the bus.
 
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=\linewidth]{%s_fig5.png}
+		\includegraphics[width=\linewidth]{%s_fig10.png}
 		\caption{Distribution of all bytes transmitted over the bus - pareto chart}
-		\label{fig_1}
+		\label{fig:dist-byte-pareto}
 \end{figure}	
 
 \begin{figure}[H]
 		\centering
-		\includegraphics[width=\linewidth]{%s_fig4.png}
+		\includegraphics[width=\linewidth]{%s_fig9.png}
 		\caption{Distribution of all bytes transmitted over the bus - pie chart}
-		\label{fig_2}
-\end{figure}	
-
-\pagebreak
-\subsection{Distribution of repeated byte values in each bus transfer (bus-wise)}
-Figure \ref{fig_3} gives the number of repeated byte values in each bus transfer.
-
-\begin{figure}[H]
-		\centering
-		\includegraphics[width=\linewidth]{%s_fig6.png}
-		\caption{Distribution of repeated byte values in each bus transfer - bus-wise}
-		\label{fig_3}
+		\label{fig:dist-byte-pie}
 \end{figure}	
 
 \pagebreak
 \subsection{Distribution of transitions (transfer-wise)}
-\subsubsection{All transfers}
-Figure \ref{fig_4} illustrates the most popular transitions happened during a whole benchmarking. Tuples $(n,n)$ have been used as $(old\_value, new\_value)$ to show the transition.
+\subsubsection{All transfers (transfer-wise)}
+Figure~\ref{fig:dist-tw-trans} illustrates the distribution of 
+all transitions. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition.
 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{%s_fig1.png}
 		\caption{Distribution of transitioning bytes - transfer-wise}
-		\label{fig_4}
+		\label{fig:dist-tw-trans}
 \end{figure}	
 
 \pagebreak
-\subsubsection{Only differing byte transfers (hamming distance $>$ 0)}
-Figure \ref{fig_5} illustrates the most popular transitions happened during a whole benchmarking. Tuples $(n,n)$ have been used as $(old\_value, new\_value)$ to show the transition.
+\subsubsection{Only differing byte transfers (hamming distance $>$ 0)(transfer-wise)}
+Figure \ref{fig:dist-tw-trans-diff} illustrates the distribution of 
+transitions, filtered only to show differing byte transitions. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition.
 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{%s_fig2.png}
-		\caption{Distribution of transitioning bytes - transfer-wise (only differing bytes)}
-		\label{fig_5}
+		\caption{Distribution of transitioning bytes - 
+                  transfer-wise (only differing bytes)}
+		\label{fig:dist-tw-trans-diff}
 \end{figure}	
 
 \pagebreak
-\subsubsection{Only differing byte transfers (hamming distance $>$ 0)}
-Figure \ref{fig_6} illustrates only the non-changing byte transfers, within a whole benchmarking transfer-wise, but this time the percentages displayed are in proportion to this.
+\subsubsection{Only same byte transfers (hamming distance $=$ 0)(transfer-wise)}
+Figure \ref{fig:dist-tw-trans-same} illustrates the distribution of
+transitions, filtered only to show non-changing byte transfers. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition.
 
 \begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{%s_fig3.png}
-		\caption{Distribution of transitioning bytes - transfer-wise (only same byte transitions)}
-		\label{fig_6}
+		\caption{Distribution of transitioning bytes - 
+                  transfer-wise (only same byte transitions)}
+		\label{fig:dist-tw-trans-same}
 \end{figure}	
+
+\pagebreak
+\subsubsection{Number of consecutive ``n'' zeros encountered (transfer-wise)}
+Figure \ref{fig:consec-zeros-tw} illustrates the distribution of
+consecutive ``n'' zeros encountered, transfer-wise. The x axis is
+the ``n'' value, and the y axis is the frequency.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig4.png}
+		\caption{Number of consecutive \texttt{0} values encountered - 
+                  transfer-wise}
+		\label{fig:consec-zeros-tw}
+\end{figure}
+
+
+
+
+
+
+\pagebreak
+\subsection{Distribution of transitions (bus-wise)}
+\subsubsection{All transfers (bus-wise)}
+Figure~\ref{fig:dist-bw-trans} illustrates the distribution of all 
+transitions happened during a whole benchmarking, bus-wise. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig5.png}
+		\caption{Distribution of transitioning bytes - bus-wise}
+		\label{fig:dist-bw-trans}
+\end{figure}	
+
+\pagebreak
+\subsubsection{Only differing byte transfers (hamming distance $>$ 0)(bus-wise)}
+Figure \ref{fig:dist-bw-trans-diff} illustrates the distribution of 
+transitions happened during the whole benchmarking. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig6.png}
+		\caption{Distribution of transitioning bytes - bus-wise (only differing bytes)}
+		\label{fig:dist-bw-trans-diff}
+\end{figure}	
+
+\pagebreak
+\subsubsection{Only same byte transfers (hamming distance $=$ 0)(bus-wise)}
+Figure \ref{fig:dist-bw-trans-same} illustrates the distribution of
+transitions, filtered only to show non-changing byte transfers. Tuples $(n,n)$ 
+have been used as $(old\_value, new\_value)$ to show the transition. 
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig7.png}
+		\caption{Distribution of transitioning bytes - bus-wise (only same byte transitions)}
+		\label{fig:dist-bw-trans-same}
+\end{figure}	
+
+\pagebreak
+\subsubsection{Number of consecutive ``n'' zeros encountered (bus-wise)}
+Figure \ref{fig:consec-zeros-tw} illustrates the distribution of
+consecutive ``n'' zeros encountered, transfer-wise. The x axis is
+the ``n'' value, and the y axis is the frequency.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig8.png}
+		\caption{Number of consecutive \texttt{0} values encountered - 
+                  bus-wise}
+		\label{fig:consec-zeros-bw}
+\end{figure}
 
 \end{document}
