@@ -75,6 +75,21 @@ for i=1:256
     end
 end
 
+% reuse counts for values brought into the cache
+tuples = tuples(256*256+3:end)
+reuse_counts = zeros(1,256);
+for i=1:256
+    reuse_counts(i) = str2double(tuples{i}{2});
+end
+
+% reuse ratios for values brought into the cache (normalized against
+% evicted values)
+tuples = tuples(259:end)
+reuse_ratios = zeros(1,256);
+for i=1:256
+    reuse_ratios(i) = str2double(tuples{i}{2});
+end
+
 handles = [];
 handles = [handles plot_distro( trans_distro_tw, 7, {'Distribution of transitioning','bytes - transfer-wise'}, 'Byte value', 'Number of occurences' , plotsVisible)];
 handles = [handles plot_distro_differing( trans_distro_tw, 10, {'Distribution of transitioning bytes','transfer-wise (only differing bytes)'}, 'Byte value', 'Number of occurences', plotsVisible )];
@@ -87,6 +102,8 @@ handles = [handles plot_distro_same( trans_distro_bw, 4, {'Distribution of trans
 handles = [handles plot_seq_zeros( consec_zeros_bw, 'Consecutive zeros - bus-wise', '# of consecutive zeros', '# of occurences',plotsVisible)];
 
 handles = [handles plot_graphs( vals, 7, 'Distribution of byte values read/written', 'Byte value', 'Number of occurences', plotsVisible )];
+
+handles = [handles plot_reuse(reuse_ratios, 10, plotsVisible )]; %reuse/not reuse graphs
 
 for i=1:length(handles)
     set(handles(i),'Position', [0,0,800,800])
@@ -159,7 +176,8 @@ try
         stats{16}{1},stats{16}{2},...
         stats{17}{1},stats{17}{2},...
         stats{18}{1},stats{18}{2},...
-        figname,figname,figname,figname,figname,figname,figname,figname,figname,figname);
+        stats{19}{1},stats{19}{2},...
+        figname,figname,figname,figname,figname,figname,figname,figname,figname,figname,figname,figname);
     fclose(fid);
 catch
     disp('Could not write the output latex report file. There might have been an error getting write access to the created file.');

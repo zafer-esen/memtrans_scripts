@@ -11,7 +11,9 @@
 \maketitle
 
 \section{Scalar Statistics}
+\label{sec:scalar-stats}
 
+\textbf{%s}:%s \\
 \textbf{%s}:%s \\
 \textbf{%s}:%s \\
 \textbf{%s}:%s \\
@@ -171,6 +173,33 @@ the ``n'' value, and the y axis is the frequency.
 		\caption{Number of consecutive \texttt{0} values encountered - 
                   bus-wise}
 		\label{fig:consec-zeros-bw}
+\end{figure}
+
+\pagebreak
+\subsection{Byte reuse ratios at eviction}
+
+Figure~\ref{fig:most-reused} and Figure~\ref{fig:least-reused} 
+give the reuse ratios of the bytes for each byte value. Note that the
+byte values are the last values the cacheline contained \textbf{at eviction},
+not the original byte values brought in to the cache. Also note that these 
+numbers do not give an idea on \textit{how much} the cacheline was reused. The
+values in the cacheline are marked as reused as soon as the value is read/written to
+after the initial access.
+
+For the overall cacheline reuse statistic, see Section~\ref{sec:scalar-stats}.
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig11.png}
+		\caption{Most reused byte values at eviction}
+		\label{fig:most-reused}
+\end{figure}	
+
+\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{%s_fig12.png}
+		\caption{Least reused byte values at eviction}
+		\label{fig:least-reused}
 \end{figure}
 
 \end{document}

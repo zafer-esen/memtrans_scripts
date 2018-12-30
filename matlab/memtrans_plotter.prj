@@ -92,6 +92,7 @@ ${LD_LIBRARY_PATH}:MR/v94/runtime/glnxa64:MR/v94/bin/glnxa64:MR/v94/sys/os/glnxa
       <file>${PROJECT_ROOT}/plot_distro_differing.m</file>
       <file>${PROJECT_ROOT}/plot_distro_same.m</file>
       <file>${PROJECT_ROOT}/plot_graphs.m</file>
+      <file>${PROJECT_ROOT}/plot_reuse.m</file>
     </fileset.resources>
     <fileset.package />
     <fileset.depfun>

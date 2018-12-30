@@ -3,9 +3,9 @@
 #SBATCH -A snic2018-8-228
 #SBATCH -p core -n 1
 #SBATCH -t 0-00:30:00
-#SBATCH --mail-type=ALL
+#SBATCH --mail-type=END
 #SBATCH --mail-user=ZaferIbrahim.Esen.7260@student.uu.se
-#SBATCH -o run_outputs/531-deepsjeng-r-%j-repgen.log
+#SBATCH -o run_outputs/%j-repgen.log
 
 fileaddr="../run_outputs/$1.out"
 figfolder="../matlab_figures/$2"
